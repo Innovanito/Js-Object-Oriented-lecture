@@ -10,9 +10,10 @@ function Person1() {
 
 console.log('Person1', Person1);
 console.log('Person1()', Person1());
+console.dir('dir of Person1', Person1)
 
 function Person2() {
-  name='kim'
+  // name='kim'
   first=10
   second=20
   third=30
@@ -29,3 +30,5 @@ var lee = new Person1()
 
 console.log('kim.sum()', kim.sum())
 console.log('lee.sum()', lee.sum())
+console.log('this.first', this.first);
+
