@@ -62,6 +62,39 @@ dogType2.type();
 이 예제를 보면,  
 일반함수에서는 return 안에 있는 변수인 name을 참조하지만, 화살표함수에서는 return 밖에 있는 name을 참조하는 것을 알 수 있다.
 
+## super
+```js
+class Person{
+  constructor(name, first, second) {
+    this.name = name
+    this.first = first
+    this.second = second
+  }
+}
+
+class PersonPlus extends Person {
+  avg() {
+    return (this.first+this.second)/2
+  }
+}
+
+class Person2 extends PersonPlus {
+  constructor(name, first, second, third) {
+    super(name,first,second)
+    this.third= third
+  }
+  sum() {
+    return super.sum() + this.third
+  }
+}
+
+var kim = new Person2('kim', 10, 20,30)
+console.log('sum of third variables', kim.sum());
+```
+이 코드를 보면 Person의 클라스를 PersonPlus로 상속받고,  
+이 상속받은 함수를 다시 Person2가 상속받아서 super를 이용해서 또 코드를 중복해서 쓸 필요 없이  
+super를 이용해 부모의 메서드를 사용하여 코드를 간편히 작성할 수 있다.
+
 # javascript에서 함수란?
 
 javascript에서는 함수는 객체처럼 동작한다.
