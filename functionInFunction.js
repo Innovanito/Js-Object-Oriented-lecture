@@ -10,4 +10,8 @@ function print(value) {
   console.log(value)
 }
 
-console.dir(print)
+function useCallback(callback) {
+  callback('hello')
+}
+
+useCallback(print())
