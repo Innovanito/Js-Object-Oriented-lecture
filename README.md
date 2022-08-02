@@ -170,3 +170,15 @@ __proto를 이용해 subObj의 부모를 superObj로 설정해 준 후에,
 하지만 자식 객체에서 superVal의 값을 바꾸랴고 해도 그 값은 바뀌지 않는다.  
 왜냐하면 subObj는 부모 객체인 superObj를 참조하고 있기 때문에 그 값이 바뀌지 않는 이상 그 값은 동일하다.  
 (얕은 복사의 개념과 유사한 것 같다.)
+
+## Object.create()
+
+Object.create()를 이용해서 __proto__ 에서 한 것과 같이 할 수 있다.
+
+```js
+var superObj = { superVal: 'super'}
+
+var subObj= Object.create(superObj)
+subObj.subVal = 'sub'
+```
+이렇게 하면 위에 코딩한 것과 같은 결과를 같는다.
