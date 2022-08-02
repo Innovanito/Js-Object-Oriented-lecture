@@ -6,7 +6,7 @@ class Person{
   }
 
   sum() {
-    return 'sum(): :' + (this.first+this.second)
+    return  this.first+this.second
   }
 }
 
@@ -16,6 +16,15 @@ class PersonPlus extends Person {
   }
 }
 
-var kim = new PersonPlus('kim', 10, 20)
-console.log(kim.sum());
-console.log('kim.avg()', kim.avg());
+class Person2 extends PersonPlus {
+  constructor(name, first, second, third) {
+    super(name,first,second)
+    this.third= third
+  }
+  sum() {
+    return super.sum() + this.third
+  }
+}
+
+var kim = new Person2('kim', 10, 20,30)
+console.log('sum of third variables', kim.sum());
