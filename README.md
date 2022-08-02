@@ -182,3 +182,28 @@ var subObj= Object.create(superObj)
 subObj.subVal = 'sub'
 ```
 이렇게 하면 위에 코딩한 것과 같은 결과를 같는다.
+
+#객체와 함수
+
+## call
+
+독립되어 있는 각각의 객체와 함수를 call로 이어서 사용할 수 있다.
+call을 먼저 사용한 다음 함수 안에 있는 this의 값을 인자로 받은 객체의 값으로 활용 가능한 메소드
+
+```js
+var kim = {name: 'kim', first:10, second:20}
+var lee = {name: 'kim', first:10, second:10}
+
+function sum(prefix) {
+  return prefix + (this.first+this.second)
+}
+
+console.log(sum.call(kim, '=>'));
+console.log(sum.call(lee, ':'));
+```
+결과값  
+=>30
+:20
+
+sum이라는 함수 호출한 다음에 뒤에 .call을 불러서 첫 번째 인자는 this가 가르키는 객체를 넣어주고,  
+두 번째 부터는 함수의 인자를 순서대로 넣어주면 된다.
