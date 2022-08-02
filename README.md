@@ -228,3 +228,15 @@ console.log('kimSum()', kimSum());
 
 결과값  
 kimSum() ->30
+
+# 함수를 생성하면 Javascript에서 일어나는 일
+
+<img width="1058" alt="스크린샷 2022-08-02 오후 5 21 38" src="https://user-images.githubusercontent.com/72393144/182327996-175fe1c9-61c7-40e8-b29d-542c66859f6a.png">
+
+일단 Person이라는 객체를 생성하면 자동적으로 Person의 Prototype 객체가 생성이 된다.  
+이 둘을 연결해주기 위해 Person의 속성인 prototype이 생성이 되고, 이는 Person의 prorotype 객체를 가르킨다.
+
+Person의 prototype 객체는 constructor를 만들어서 Person을 가르킨다.
+
+new를 이용해 kim이라는 객체를 생성하면 그 안에 있는 __proto__를 생성해서 Person의 prototype 객체를 가르킨다.  
+그래서 그 안에 있는 속성과 메소드 값을 이용할 수 있게 한다.
