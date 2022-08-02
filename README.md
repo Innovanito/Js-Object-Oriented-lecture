@@ -138,3 +138,35 @@ print()는 어떠한 값도 return 하지 않기 때문에 undefined를 return�
 **함수 안에 값만 쓰고 싶을 때에는 소괄호()를 포함해서 함수의 인자로써 함수를 넣고,**  
 **함수 전체를 실행시키고 싶을 때에는 소괄호() 없이 함수의 인자로써 함수를 넣으면 된다.**
 
+# 객체 상속
+
+## __proto__
+
+서로 아무 관계가 없는 두 객체를 부모 자식 관계로 만들어 줄 수 있는 메소드
+
+```js
+var superObj = { superVal: 'super'}
+var subObj = {subVal: 'sub'}
+
+subObj.__proto__ = superObj
+
+console.log('subObj.subVal', subObj.subVal);
+console.log('subObj.superVal', subObj.superVal);
+
+subObj.superVal = 'sub2'
+console.log('subObj.superVal2', subObj.superVal);
+
+```
+
+결과값  
+subObj.subVal sub  
+subObj.superVal super  
+subObj.superVal2 sub2  
+
+
+__proto를 이용해 subObj의 부모를 superObj로 설정해 준 후에,  
+부모가 가지고 있는 객체의 값 superVal을 subObj가 출력해주면 부모가 가지고 있는 superVal을 상속받은 것을 알 수 있다.  
+
+하지만 자식 객체에서 superVal의 값을 바꾸랴고 해도 그 값은 바뀌지 않는다.  
+왜냐하면 subObj는 부모 객체인 superObj를 참조하고 있기 때문에 그 값이 바뀌지 않는 이상 그 값은 동일하다.  
+(얕은 복사의 개념과 유사한 것 같다.)
