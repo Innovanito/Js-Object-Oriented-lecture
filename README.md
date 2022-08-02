@@ -202,8 +202,29 @@ console.log(sum.call(kim, '=>'));
 console.log(sum.call(lee, ':'));
 ```
 결과값  
-=>30
+=>30  
 :20
 
 sum이라는 함수 호출한 다음에 뒤에 .call을 불러서 첫 번째 인자는 this가 가르키는 객체를 넣어주고,  
 두 번째 부터는 함수의 인자를 순서대로 넣어주면 된다.
+
+## bind
+
+call 메소드와 역할은 비슷하지만 조금 다른 메소드가 bind이다. 
+call은 호출될 때 마다 call의 인자가 달라질 때마다 this의 값이 바뀌는 반면,  
+bind는 그 뜻처럼 아예 this의 값을 엮어버릴 수 있다.(고정시킨다)
+
+```js
+var kim = {name: 'kim', first:10, second:20}
+var lee = {name: 'kim', first:10, second:10}
+
+function sum(prefix) {
+  return prefix + (this.first+this.second)
+}
+
+var kimSum = sum.bind(kim, '->')
+console.log('kimSum()', kimSum());
+```
+
+결과값  
+kimSum() ->30
